@@ -18,7 +18,7 @@ pragma solidity 0.8.18;
 contract MyToken {
 
 string public tokenName = "Anjali";
-string public tokenAbbrevation= "anj";
+string public Abbrevation= "anj";
 uint public totalSupply = 0;
 mapping(address=>uint) public balance;
 
