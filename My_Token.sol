@@ -15,22 +15,34 @@ pragma solidity 0.8.18;
        to the amount that is supposed to be burned.
 */
 
+
 contract MyToken {
 
-string public tokenName = "Anjali";
-string public Abbrevation= "anj";
-uint public totalSupply = 0;
-mapping(address=>uint) public balance;
+    // public variables here
+    string public Name = "Anjali";
+    string public Abbrivation = "Anj";
+    uint public totalSupply = 0;
+    
+
+    // mapping variable here
+    mapping (address=> uint) public balances;
 
     // mint function
-function mint(address _address, uint _value) public {
-    totalSupply += _value;
-    balance[_address] += _value;
-}
+    function mint(address _address, uint _value) public {
+        totalSupply += _value;
+        balances[_address] += _value;  
+
+    }
+
+
     // burn function
-function burn(address _address, uint _value) public {
-require(balance[_address]>=_value,"value should always be less than the total balance");
-    totalSupply -= _value;
-    balance[_address] -= _value;
-}
+    function burn( address _address,uint _value) public {
+        require( balances[_address] >= _value);
+        
+            totalSupply -= _value;
+            balances[_address] -= _value;
+        
+        
+    }
+
 }
